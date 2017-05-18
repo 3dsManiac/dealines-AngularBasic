@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>dead</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<style type="text/css">
+		@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+	}
+	table {
+		table-layout: fixed;
+		width: 100%;
+	}
+	.horizontal {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	h2 {
+		font-size: 0.8 em;
+	}
+	th {
+		text-align: center;
+	}
+	td {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	table {
+		border-color: black;
+	}
+	.ha {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body ng-app="myapp">
+
+<div class="container-fluid" ng-controller="SimpleController">
+<center>
+<div class="container-fluid horizontal">
+<h2 class="">Contact Details and deadlines for submitting Coordinator Applications</h2>
+</div>
+<table class="table table-responsive table-bordered table-hover col-xs-12">
+<thead>
+<tr>
+<th class="col-xs-3"><div class="container-fluid">Departments</div></th>
+<th class="col-xs-3"><div class="container-fluid">Emails</div></th>
+<th class="col-xs-3"><div class="container-fluid">Position</div></th>
+<th class="col-xs-3"><div class="container-fluid">Deadline</div></th>
+</tr>
+</thead>
+
+<tbody>
+	<tr ng-repeat="(ok,dept) in depts">
+		<td class="col-xs-3" ><div class=" container-fluid">{{ ok}}</div></td>
+		<td class="col-xs-3" ><div class="col-xs-3 container-fluid"><p ng-repeat="email in dept.emails">{{email}}@shaastra.org</p></div></td>
+		<td class="col-xs-3" ><div class="col-xs-3 container-fluid ha"><div ng-repeat="(y,x) in branches" ng-if="y == ok"><p class="bord" ng-repeat="val in x">{{val.name}}</p></div></div></td>
+		<td class="col-xs-3"><div class="col-xs-3 container-fluid ha"><div ng-repeat="(y,x) in branches" ng-if="y == ok"><p class="bord" ng-repeat="val in x">{{val.date}}</p></div></div></td>
+	</tr>
+</tbody>
+	
+</table>
+</center>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
